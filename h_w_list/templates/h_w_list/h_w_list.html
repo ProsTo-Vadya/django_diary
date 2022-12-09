@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block title %}Дневник{% endblock %}
+
+{% block content %}
+<h2>Задания на дом:
+</h2><br>
+<br>
+
+{% if latest_articles_list %}
+    {% for a in latest_articles_list %}
+        <div  class="alert alert-dark" role="alert mt-2">
+            <h3> {{a.h_w_title}} </h3>
+            <p>{{a.h_w_text}}</p>
+            {% if a.was_published_recently %}
+                Задание скорее всего истекло, сообщите админам чтобы удалили!<br>
+                <em>Было задано на {{a.pub_date}}</em>
+            {% else %}
+               <em>Задано на {{a.pub_date}}</em>
+            {% endif %}
+        </div>
+        
+    {% endfor %}
+
+{% else %}
+    <h2>Домашних заданий на неделю нет, отдыхай!</h2>
+{% endif %}
+    
+
+{% endblock %}
+

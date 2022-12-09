@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block title %}Отправить Д/З в виде фото{% endblock %}
+
+{% block content %}
+    <h2>Отправить Д/З</h2>
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-success">Отправить </button>
+    </form>
+    
+{% endblock %}

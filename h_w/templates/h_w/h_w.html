@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block title %}Отправить Д/З{% endblock %}
+
+{% block content %}
+    <h2>Отправить Д/З</h2>
+    <form method="post" >
+        {% csrf_token %}
+        {{form.h_w_send_name}} <br>
+        {{ form.h_w_send_lesson}} <br>
+        {{form.h_w_send_text}} <br>
+        <button type="submit" class="btn btn-success">Отправить </button>
+        <span>{{ error }}</span>
+    </form>
+{% endblock %}
+
